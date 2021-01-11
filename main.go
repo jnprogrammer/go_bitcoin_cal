@@ -16,15 +16,15 @@ Maximum Limit
 21,000,000 BTC = 21,000,000,000,000,000 Twenty One Quadrillion
 
 Phase 1:
-	build out functional MVP
+	build out functional MVP slice
+	COMPLETED 1-10-21
 
 Phase 2:
-	Refine MVP and expand to fulfill the focus of this calculators
-	use for the front end.
+	Expand MVP to allow user input, prepare for API integration for live price updates
 
 Phase 3:
-	Once basic front end is added, add APIs for top Crypto markets to
-	pull pricing data for calculations
+	build out basic Front end, add APIs for top Crypto markets to
+	pull pricing data for calculations. Create database for future Analytic possibilities.
 
 Phase 4:
 	touch up Front-end and make available for public use.
@@ -44,7 +44,7 @@ import (
 	"strconv"
 )
 
-var btc float64
+//var btc float64
 var btcsym = "₿"
 
 //var adasym = "₳"
@@ -54,20 +54,15 @@ var testsats float64
 var testcost float64
 
 func main() {
-	btc = 100000000
-	testmarketprice = 41000.24
+	//btc = 100000000
 	//ada = 1000000
+
+	testmarketprice = 41000.24
 	testsats = .000249980
 	testcost = testsats * testmarketprice
 
-	//fmt.Printf(" = .%v\n"+btcsym, btc)
-	//fmt.Printf(  "%v is the price of ₿itcoin ",testcost)
-	//strconv.FormatFloat(testcost,'f', -2, 64)
 	fmt.Printf(btcsym+"%v satoshis is equalivannt to ", strconv.FormatFloat(testsats, 'f', 9, 64))
-
 	fmt.Printf("$%v USD with ₿itcoin Market price ", strconv.FormatFloat(testcost, 'f', 2, 64))
-
 	fmt.Printf("at $%v USD\n", strconv.FormatFloat(testmarketprice, 'f', 2, 32))
-	//fmt.Printf(adasym + " = %d\n", ada)
 
 }
