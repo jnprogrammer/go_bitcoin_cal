@@ -33,13 +33,15 @@ Phase 4:
 MISC:
 Test out Humanize library for commas in large numbers
 https://github.com/dustin/go-humanize
+
+naa
 */
 
 package main
 
 import (
 	"fmt"
-	"github.com/bojanz/currency"
+	"strconv"
 )
 
 var btc float64
@@ -53,18 +55,19 @@ var testcost float64
 
 func main() {
 	btc = 100000000
-	testmarketprice = 34022.24
+	testmarketprice = 41000.24
 	//ada = 1000000
-	testsats = 24.239949980
+	testsats = .000249980
 	testcost = testsats * testmarketprice
 
 	//fmt.Printf(" = .%v\n"+btcsym, btc)
 	//fmt.Printf(  "%v is the price of ₿itcoin ",testcost)
 	//strconv.FormatFloat(testcost,'f', -2, 64)
-	//fmt.Printf("$%v is the Cost of ₿itcoin\n", humanize.Comma(strconv.FormatFloat(testcost, 'f', 2, 64)))
+	fmt.Printf(btcsym+"%v satoshis is equalivannt to ", strconv.FormatFloat(testsats, 'f', 9, 64))
 
-	fmt.Printf("At $%v USD\n", testmarketprice)
-	fmt.Printf("This is equalivannt to "+btcsym+"%v satoshis ", testsats)
+	fmt.Printf("$%v USD with ₿itcoin Market price ", strconv.FormatFloat(testcost, 'f', 2, 64))
+
+	fmt.Printf("at $%v USD\n", strconv.FormatFloat(testmarketprice, 'f', 2, 32))
 	//fmt.Printf(adasym + " = %d\n", ada)
 
 }
