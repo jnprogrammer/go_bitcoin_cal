@@ -3,6 +3,17 @@
 This calculator is to help calculate trades from alt coins into BTC
 and arbitrage for profit in Satoshis.
 
+1 BTC = 100,000,000 One Hundred Million
+10 BTC = 1,000,000,000 One Billion
+100 BTC = 10,000,000,000 Ten Billion
+1000 BTC = 100,000,000,000 One Hundred Billion
+10,000 BTC = 1,000,000,000,000 One Trillion
+100,000 BTC = 10,000,000,000,000 Ten Trillion
+1,000,000 BTC = 100,000,000,000,000 One Hundred Trillion
+10,000,000 BTC = 1,000,000,000,000,000 One Quadrillion
+
+Maximum Limit
+21,000,000 BTC = 21,000,000,000,000,000 Twenty One Quadrillion
 
 Phase 1:
 	build out functional MVP
@@ -28,9 +39,7 @@ package main
 
 import (
 	"fmt"
-	"golang.org/x/text/language"
-	"golang.org/x/text/message"
-	"strconv"
+	"github.com/bojanz/currency"
 )
 
 var btc float64
@@ -52,7 +61,8 @@ func main() {
 	//fmt.Printf(" = .%v\n"+btcsym, btc)
 	//fmt.Printf(  "%v is the price of ₿itcoin ",testcost)
 	//strconv.FormatFloat(testcost,'f', -2, 64)
-	fmt.Printf("$%v is the Cost of ₿itcoin\n", strconv.FormatFloat(testcost, 'f', 2, 64))
+	//fmt.Printf("$%v is the Cost of ₿itcoin\n", humanize.Comma(strconv.FormatFloat(testcost, 'f', 2, 64)))
+
 	fmt.Printf("At $%v USD\n", testmarketprice)
 	fmt.Printf("This is equalivannt to "+btcsym+"%v satoshis ", testsats)
 	//fmt.Printf(adasym + " = %d\n", ada)
