@@ -10,7 +10,7 @@ and arbitrage for profit in Satoshis.
 10,000 BTC = 1,000,000,000,000 One Trillion
 100,000 BTC = 10,000,000,000,000 Ten Trillion
 1,000,000 BTC = 100,000,000,000,000 One Hundred Trillion
-10,000,000 BTC = 1,000,000,000,000,000 One Quadrillion
+10,000,000 BTC = 1,000,000,000,000,000 One Quadrillion 16 digits
 
 Maximum Limit
 21,000,000 BTC = 21,000,000,000,000,000 Twenty One Quadrillion
@@ -21,7 +21,7 @@ Phase 1:
 
 Phase 2:
 	Expand MVP to allow user input, prepare for API integration for live price updates
-
+	I may ned to use all ints and deal with calculations manually to represent the multiple place values from 100M to 1 Quadrillion
 
 Phase 3:
 	build out basic Front end, add APIs for top Crypto markets to
