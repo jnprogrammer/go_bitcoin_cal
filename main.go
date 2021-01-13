@@ -23,6 +23,9 @@ Phase 2:
 	Expand MVP to allow user input, prepare for API integration for live price updates
 	I may ned to use all ints and deal with calculations manually to represent the multiple place values from 100M to 1 Quadrillion
 
+	I may need to toggle if a user is starting with a BTC value ammount or
+	a Satoshi value amount.
+
 Phase 3:
 	build out basic Front end, add APIs for top Crypto markets to
 	pull pricing data for calculations. Create database for future Analytic possibilities.
@@ -77,12 +80,12 @@ func main() {
 	testamt2 = 0.03135440
 	testmarketprice = 41000.24
 	testsats = .000249980
-	testcost = testsats * testmarketprice
-
+	testcost = testamt1 * testmarketprice
 	testint = int64(testamt2)
+
 	fmt.Println("Enter How many Satoshis you have as a whole number\n")
-	fmt.Printf("Stop use this first. %v", testint)
-	fmt.Printf(btcsym+"%v satoshis is equalivannt to ", strconv.FormatFloat(testsats, 'f', 9, 64))
+	fmt.Printf("Stop use this first. %v\n", testint)
+	fmt.Printf(btcsym+"%v satoshis is equalivannt to ", strconv.FormatFloat(testamt1, 'f', 9, 64))
 	fmt.Printf("$%v USD with ₿itcoin Market price ", strconv.FormatFloat(testcost, 'f', 2, 64))
 	fmt.Printf("at $%v USD\n", strconv.FormatFloat(testmarketprice, 'f', 2, 32))
 
