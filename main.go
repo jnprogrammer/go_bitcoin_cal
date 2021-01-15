@@ -45,7 +45,6 @@ package main
 
 import (
 	"fmt"
-	"strconv"
 )
 
 //var btc float64
@@ -53,11 +52,12 @@ var btcsym = "₿"
 
 //var adasym = "₳"
 //var ada uint32
-var testmarketprice float64
-var testsats float64
-var testcost float64
-var testamt1 float64
-var testamt2 float64
+var testmarketprice int64
+var testsats int64
+var testcost int64
+
+//var testamt1 int64
+//var testamt2 int64
 var testint int64
 
 func main() {
@@ -73,20 +73,27 @@ func main() {
 		     numbers and I'll deal with conversion with the decimal in the background.. . . I'll find other ways to make this harder with
 			 feature creep.
 
-		1. A function that allows you to enter one satoshi amount and another satoshie amount that would be
+		1. A function that allows you to enter one satoshi amount and another satoshi amount that would be
 		used in various arithmetic operations like finding the difference or multiplying them by a particular function.
 	*/
-	testamt1 = 0.02911480
-	testamt2 = 0.03135440
-	testmarketprice = 41000.24
-	testsats = .000249980
-	testcost = testamt1 * testmarketprice
-	testint = int64(testamt2)
+	//testamt1 = 0.02911480
+	//testamt2 = 0.03135440
+	testmarketprice = 40000
+	//testsats = .000249980
+	//testcost = testamt1 * testmarketprice
 
 	fmt.Println("Enter How many Satoshis you have as a whole number\n")
-	fmt.Printf("Stop use this first. %v\n", testint)
-	fmt.Printf(btcsym+"%v satoshis is equalivannt to ", strconv.FormatFloat(testamt1, 'f', 9, 64))
-	fmt.Printf("$%v USD with ₿itcoin Market price ", strconv.FormatFloat(testcost, 'f', 2, 64))
-	fmt.Printf("at $%v USD\n", strconv.FormatFloat(testmarketprice, 'f', 2, 32))
+	fmt.Scan(&testint)
+	//_, err := bufio.NewReader(os.Stdin)
+	//fmt.Printf("Stop use this first. %v\n", reader)
+
+	/*
+		I'll use int64s and track the placement manually as a start.
+	*/
+	testcost = testint * testmarketprice
+
+	fmt.Printf(btcsym+"%v satoshis is equalivannt to ", testint)
+	fmt.Printf("$%v USD with ₿itcoin Market price ", testcost)
+	fmt.Printf("at $%v USD\n", testmarketprice)
 
 }
