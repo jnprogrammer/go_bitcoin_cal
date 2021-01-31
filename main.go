@@ -54,7 +54,7 @@ var btcsym = "₿"
 //var adasym = "₳"
 //var ada uint32
 var testmarketprice float64
-var testsats int64
+var userInput float64
 var testcost float64
 var largeIntBox int64
 var quadr int64
@@ -78,7 +78,7 @@ func main() {
 		1. A function that allows you to enter one satoshi amount and another satoshi amount that would be
 		used in various arithmetic operations like finding the difference or multiplying them by a particular function.
 	*/
-	testamt1 = 0.02911480
+	//userInput = 0.02911480
 	//testamt2 = 0.03135440
 	testmarketprice = 36193
 	//testsats = .000249980
@@ -120,5 +120,4 @@ func convertDecimal(amt float64) int64 {
 	total = int64(amt * onebill)
 
 	return total
-
 }
