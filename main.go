@@ -51,6 +51,8 @@ import (
 //var btc float64
 var btcsym = "₿"
 
+type usd int64
+
 //var adasym = "₳"
 //var ada uint32
 var testmarketprice float64
@@ -61,7 +63,6 @@ var quadr int64
 var testamt1 float64
 
 //var testamt2 int64
-var testfloat float64
 
 func main() {
 	//btc = 100000000
@@ -85,7 +86,7 @@ func main() {
 	//testcost = testamt1 * testmarketprice
 
 	fmt.Println("Enter How many Satoshis you have as a whole number\n")
-	fmt.Scan(&testfloat)
+	fmt.Scan(&userInput)
 	//_, err := bufio.NewReader(os.Stdin)
 	//fmt.Printf("Stop use this first. %v\n", reader)
 
@@ -95,12 +96,16 @@ func main() {
 
 	*/
 
-	fmt.Printf(btcsym+"%v satoshis is equalivannt to \n", testfloat)
+	fmt.Printf(btcsym+" %v satoshis is equalivannt to \n", userInput)
 	fmt.Printf("Test: %v", convertDecimal(testamt1))
-	testcost = testfloat * testmarketprice
-	fmt.Printf("\n$%v USD with ₿itcoin Market price ", testcost)
+	testcost = userInput * testmarketprice
+	fmt.Printf("\n%v  with ₿itcoin Market price ", USD(testcost))
 	fmt.Printf("at $%v USD\n", testmarketprice)
 
+}
+
+func USD(amt float64) usd {
+	return usd((amt * 100) * .5)
 }
 
 func convertDecimal(amt float64) int64 {
