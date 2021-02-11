@@ -51,15 +51,11 @@ import (
 //var btc float64
 var btcsym = "₿"
 
-type usd int64
-
 //var adasym = "₳"
 //var ada uint32
 var testmarketprice float64
 var userInput float64
 var testcost float64
-var largeIntBox int64
-var quadr int64
 var testamt1 float64
 
 //var testamt2 int64
@@ -96,16 +92,12 @@ func main() {
 
 	*/
 
+	testcost = userInput * testmarketprice
 	fmt.Printf(btcsym+" %v satoshis is equalivannt to \n", userInput)
 	fmt.Printf("Test: %v", convertDecimal(testamt1))
-	testcost = userInput * testmarketprice
-	fmt.Printf("\n%v  with ₿itcoin Market price ", USD(testcost))
+	fmt.Printf("\n%v  with ₿itcoin Market price ", testcost)
 	fmt.Printf("at $%v USD\n", testmarketprice)
 
-}
-
-func USD(amt float64) usd {
-	return usd((amt * 100) * .5)
 }
 
 func convertDecimal(amt float64) int64 {
