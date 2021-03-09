@@ -81,7 +81,7 @@ func main() {
 	//testsats = .000249980
 	//testcost = testamt1 * testmarketprice
 
-	fmt.Println("Enter How much Bitcoin you have\n")
+	fmt.Println("Enter How much Bitcoin do you have ?\n")
 	fmt.Scan(&userInput)
 	//_, err := bufio.NewReader(os.Stdin)
 	//fmt.Printf("Stop use this first. %v\n", reader)
@@ -92,11 +92,11 @@ func main() {
 
 	*/
 
-	testcost = userInput * testmarketprice
-	fmt.Printf(btcsym+" %v satoshis is equalivannt to \n", userInput)
-	fmt.Printf("Test: %v", convertToSat(testamt1))
-	fmt.Printf("\n%v  with ₿itcoin Market price ", testcost)
-	fmt.Printf("at $%v USD\n", testmarketprice)
+	//testcost = userInput * testmarketprice
+	fmt.Printf(btcsym+" %v  is equalivannt to \n", userInput)
+	fmt.Printf("Satoshis: %v", convertToSat(userInput))
+	//fmt.Printf("\n%v  with ₿itcoin Market price ", testcost)
+	//fmt.Printf("at $%v USD\n", testmarketprice)
 
 }
 
@@ -112,10 +112,10 @@ func convertToSat(amt float64) int64 {
 	//var onehmill float64 = 1000000000
 
 	//needs take in a BTC amount and convert it to satoshis
-	var onebill float64 = 1000000000
+	var onehm float64 = 100000000
 	var total int64
 
-	total = int64(amt * onebill)
+	total = int64(amt * onehm)
 
 	return total
 }
