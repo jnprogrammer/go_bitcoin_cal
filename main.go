@@ -77,11 +77,11 @@ func main() {
 	*/
 	//userInput = 0.02911480
 	//testamt2 = 0.03135440
-	testmarketprice = 36193
+	//testmarketprice = 36193
 	//testsats = .000249980
 	//testcost = testamt1 * testmarketprice
 
-	fmt.Println("Enter How many Satoshis you have as a whole number\n")
+	fmt.Println("Enter How much Bitcoin you have\n")
 	fmt.Scan(&userInput)
 	//_, err := bufio.NewReader(os.Stdin)
 	//fmt.Printf("Stop use this first. %v\n", reader)
@@ -94,13 +94,13 @@ func main() {
 
 	testcost = userInput * testmarketprice
 	fmt.Printf(btcsym+" %v satoshis is equalivannt to \n", userInput)
-	fmt.Printf("Test: %v", convertDecimal(testamt1))
+	fmt.Printf("Test: %v", convertToSat(testamt1))
 	fmt.Printf("\n%v  with ₿itcoin Market price ", testcost)
 	fmt.Printf("at $%v USD\n", testmarketprice)
 
 }
 
-func convertDecimal(amt float64) int64 {
+func convertToSat(amt float64) int64 {
 	//1 BTC = 100,000,000 One Hundred Million
 	//10 BTC = 1,000,000,000 One Billion
 	//100 BTC = 10,000,000,000 Ten Billion
@@ -109,8 +109,9 @@ func convertDecimal(amt float64) int64 {
 	//100,000 BTC = 10,000,000,000,000 Ten Trillion
 	//1,000,000 BTC = 100,000,000,000,000 One Hundred Trillion
 	//10,000,000 BTC = 1,000,000,000,000,000 One Quadrillion 16 digits
-
 	//var onehmill float64 = 1000000000
+
+	//needs take in a BTC amount and convert it to satoshis
 	var onebill float64 = 1000000000
 	var total int64
 
