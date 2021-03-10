@@ -44,8 +44,13 @@ naa
 
 package main
 
+/*
+
+ */
 import (
 	"fmt"
+	"golang.org/x/text/language"
+	"golang.org/x/text/message"
 )
 
 //var btc float64
@@ -85,31 +90,22 @@ func main() {
 	fmt.Scan(&userInput)
 	//_, err := bufio.NewReader(os.Stdin)
 	//fmt.Printf("Stop use this first. %v\n", reader)
-
+	p := message.NewPrinter(language.English)
 	/*
 		I'll use int64s and track the placement manually as a start.
 		testcost = testfloat * testmarketprice
 
 	*/
-
 	//testcost = userInput * testmarketprice
-	fmt.Printf(btcsym+" %v  is equalivannt to \n", userInput)
-	fmt.Printf("Satoshis: %v", convertToSat(userInput))
+	fmt.Printf(btcsym+"%v is equalivannt to ", userInput)
+	//fmt.Printf("%v satoshis", convertToSat(userInput))
+	p.Printf("%d satoshis\n", convertToSat(userInput))
 	//fmt.Printf("\n%v  with ₿itcoin Market price ", testcost)
 	//fmt.Printf("at $%v USD\n", testmarketprice)
 
 }
 
 func convertToSat(amt float64) int64 {
-	//1 BTC = 100,000,000 One Hundred Million
-	//10 BTC = 1,000,000,000 One Billion
-	//100 BTC = 10,000,000,000 Ten Billion
-	//1000 BTC = 100,000,000,000 One Hundred Billion
-	//10,000 BTC = 1,000,000,000,000 One Trillion
-	//100,000 BTC = 10,000,000,000,000 Ten Trillion
-	//1,000,000 BTC = 100,000,000,000,000 One Hundred Trillion
-	//10,000,000 BTC = 1,000,000,000,000,000 One Quadrillion 16 digits
-	//var onehmill float64 = 1000000000
 
 	//needs take in a BTC amount and convert it to satoshis
 	var onehm float64 = 100000000
