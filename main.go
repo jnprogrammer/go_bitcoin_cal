@@ -80,8 +80,8 @@ func main() {
 
 	p := message.NewPrinter(language.English)
 
-	fmt.Printf(btcsym+"%v is equalivannt to ", userInput)
-	p.Printf("%d satoshis\n", convertToSat(userInput))
+	fmt.Printf(btcsym+" %v is equalivannt to ", userInput)
+	p.Printf("丰 %d satoshis\n", convertToSat(userInput))
 
 }
 
