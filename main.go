@@ -75,13 +75,13 @@ func main() {
 				testcost = testfloat * testmarketprice
 	*/
 
-	fmt.Println("Enter How much Bitcoin do you have ?\n")
+	fmt.Println("Enter an amount of ₿itcoin")
 	fmt.Scan(&userInput)
 
 	p := message.NewPrinter(language.English)
 
-	fmt.Printf(btcsym+" %v is equalivannt to ", userInput)
-	p.Printf("丰 %d satoshis\n", convertToSat(userInput))
+	fmt.Printf(btcsym+" %v is equivalent to \n", userInput)
+	p.Printf("丰%d satoshis\n", convertToSat(userInput))
 
 }
 
