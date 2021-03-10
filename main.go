@@ -44,64 +44,44 @@ naa
 
 package main
 
-/*
-
- */
 import (
 	"fmt"
 	"golang.org/x/text/language"
 	"golang.org/x/text/message"
 )
 
-//var btc float64
 var btcsym = "₿"
 
 //var adasym = "₳"
-//var ada uint32
-var testmarketprice float64
-var userInput float64
-var testcost float64
-var testamt1 float64
 
-//var testamt2 int64
+var userInput float64
 
 func main() {
 	//btc = 100000000
 	//ada = 1000000
 	/*
-			Adding User input will in my opinion need to let the use enter numbers without needing the decimal.
-		Why?
+				Adding User input will in my opinion need to let the use enter numbers without needing the decimal.
+			Why?
 
-			Because I'm crazy is why!! We are focusing on Satoshis. This is the most common unit of
-			 Bitcoin the majority of users will interact with, So to help with this they will enter satoshis as whole
-		     numbers and I'll deal with conversion with the decimal in the background.. . . I'll find other ways to make this harder with
-			 feature creep.
+				Because I'm crazy is why!! We are focusing on Satoshis. This is the most common unit of
+				 Bitcoin the majority of users will interact with, So to help with this they will enter satoshis as whole
+			     numbers and I'll deal with conversion with the decimal in the background.. . . I'll find other ways to make this harder with
+				 feature creep.
 
-		1. A function that allows you to enter one satoshi amount and another satoshi amount that would be
-		used in various arithmetic operations like finding the difference or multiplying them by a particular function.
+			1. A function that allows you to enter one satoshi amount and another satoshi amount that would be
+			used in various arithmetic operations like finding the difference or multiplying them by a particular function.
+
+		I'll use int64s and track the placement manually as a start.
+				testcost = testfloat * testmarketprice
 	*/
-	//userInput = 0.02911480
-	//testamt2 = 0.03135440
-	//testmarketprice = 36193
-	//testsats = .000249980
-	//testcost = testamt1 * testmarketprice
 
 	fmt.Println("Enter How much Bitcoin do you have ?\n")
 	fmt.Scan(&userInput)
-	//_, err := bufio.NewReader(os.Stdin)
-	//fmt.Printf("Stop use this first. %v\n", reader)
-	p := message.NewPrinter(language.English)
-	/*
-		I'll use int64s and track the placement manually as a start.
-		testcost = testfloat * testmarketprice
 
-	*/
-	//testcost = userInput * testmarketprice
+	p := message.NewPrinter(language.English)
+
 	fmt.Printf(btcsym+"%v is equalivannt to ", userInput)
-	//fmt.Printf("%v satoshis", convertToSat(userInput))
 	p.Printf("%d satoshis\n", convertToSat(userInput))
-	//fmt.Printf("\n%v  with ₿itcoin Market price ", testcost)
-	//fmt.Printf("at $%v USD\n", testmarketprice)
 
 }
 
