@@ -46,6 +46,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/jinzhu/gorm"
 	"golang.org/x/text/language"
 	"golang.org/x/text/message"
 )
@@ -62,8 +63,7 @@ func main() {
 	/*
 				Adding User input will in my opinion need to let the use enter numbers without needing the decimal.
 			Why?
-
-				Because I'm crazy is why!! We are focusing on Satoshis. This is the most common unit of
+				Because I'm crazy is why!! ha. . .We are focusing on Satoshis. This is the most common unit of
 				 Bitcoin the majority of users will interact with, So to help with this they will enter satoshis as whole
 			     numbers and I'll deal with conversion with the decimal in the background.. . . I'll find other ways to make this harder with
 				 feature creep.
@@ -92,6 +92,17 @@ func convertToSat(amt float64) int64 {
 	var total int64
 
 	total = int64(amt * onehm)
+
+	return total
+}
+
+func convertToLace(amt float64) int64 {
+
+	//needs take in a ADA amount and convert it to lovelaces
+	var oneht float64 = 1000000
+	var total int64
+
+	total = int64(amt * oneht)
 
 	return total
 }
