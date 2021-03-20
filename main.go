@@ -46,7 +46,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/jinzhu/gorm"
+	"github.com/gofiber/fiber"
 	"golang.org/x/text/language"
 	"golang.org/x/text/message"
 )
@@ -85,6 +85,9 @@ func main() {
 
 }
 
+func setupRoutes(app *fiber.App) {
+
+}
 func convertToSat(amt float64) int64 {
 
 	//needs take in a BTC amount and convert it to satoshis
