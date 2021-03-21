@@ -79,11 +79,9 @@ func main() {
 
 	fmt.Println("Enter an amount of ₿itcoin")
 	fmt.Scan(&userInput)
-
 	p := message.NewPrinter(language.English)
 	fmt.Printf(btcsym+" %v is equivalent to \n", userInput)
 	p.Printf("丰%d satoshis\n", calculate.ConvertToSat(userInput))
-
 	s := strconv.FormatInt(calculate.ConvertToSat(userInput), 10)
 
 	app := fiber.New()
