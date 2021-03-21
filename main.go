@@ -40,15 +40,32 @@ Test out Humanize library for commas in large numbers
 https://github.com/dustin/go-humanize
 
 naa
+
+btc = 100000000
+ada = 1000000
+
+			Adding User input will in my opinion need to let the use enter numbers without needing the decimal.
+		Why?
+			Because I'm crazy is why!! ha. . .We are focusing on Satoshis. This is the most common unit of
+			 Bitcoin the majority of users will interact with, So to help with this they will enter satoshis as whole
+		     numbers and I'll deal with conversion with the decimal in the background.. . . I'll find other ways to make this harder with
+			 feature creep.
+
+		1. A function that allows you to enter one satoshi amount and another satoshi amount that would be
+		used in various arithmetic operations like finding the difference or multiplying them by a particular function.
+
+	I'll use int64s and track the placement manually as a start.
+			testcost = testfloat * testmarketprice
 */
 
 package main
 
 import (
 	"fmt"
-	"github.com/gofiber/fiber"
+	"github.com/gofiber/fiber/v2"
 	"golang.org/x/text/language"
 	"golang.org/x/text/message"
+	"strconv"
 )
 
 var btcsym = "₿"
@@ -58,22 +75,6 @@ var btcsym = "₿"
 var userInput float64
 
 func main() {
-	//btc = 100000000
-	//ada = 1000000
-	/*
-				Adding User input will in my opinion need to let the use enter numbers without needing the decimal.
-			Why?
-				Because I'm crazy is why!! ha. . .We are focusing on Satoshis. This is the most common unit of
-				 Bitcoin the majority of users will interact with, So to help with this they will enter satoshis as whole
-			     numbers and I'll deal with conversion with the decimal in the background.. . . I'll find other ways to make this harder with
-				 feature creep.
-
-			1. A function that allows you to enter one satoshi amount and another satoshi amount that would be
-			used in various arithmetic operations like finding the difference or multiplying them by a particular function.
-
-		I'll use int64s and track the placement manually as a start.
-				testcost = testfloat * testmarketprice
-	*/
 
 	fmt.Println("Enter an amount of ₿itcoin")
 	fmt.Scan(&userInput)
@@ -82,12 +83,16 @@ func main() {
 
 	fmt.Printf(btcsym+" %v is equivalent to \n", userInput)
 	p.Printf("丰%d satoshis\n", convertToSat(userInput))
+	s := strconv.FormatInt(convertToSat(userInput), 10)
+
+	app := fiber.New()
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendString(s)
+	})
+	app.Listen(":3000")
 
 }
 
-func setupRoutes(app *fiber.App) {
-
-}
 func convertToSat(amt float64) int64 {
 
 	//needs take in a BTC amount and convert it to satoshis
@@ -95,17 +100,6 @@ func convertToSat(amt float64) int64 {
 	var total int64
 
 	total = int64(amt * onehm)
-
-	return total
-}
-
-func convertToLace(amt float64) int64 {
-
-	//needs take in a ADA amount and convert it to lovelaces
-	var oneht float64 = 1000000
-	var total int64
-
-	total = int64(amt * oneht)
 
 	return total
 }
