@@ -61,6 +61,7 @@ ada = 1000000
 package main
 
 import (
+	"coincom/m/v2/calculate"
 	"fmt"
 	"github.com/gofiber/fiber/v2"
 	"golang.org/x/text/language"
@@ -80,26 +81,15 @@ func main() {
 	fmt.Scan(&userInput)
 
 	p := message.NewPrinter(language.English)
-
 	fmt.Printf(btcsym+" %v is equivalent to \n", userInput)
-	p.Printf("丰%d satoshis\n", convertToSat(userInput))
-	s := strconv.FormatInt(convertToSat(userInput), 10)
+	p.Printf("丰%d satoshis\n", calculate.ConvertToSat(userInput))
+
+	s := strconv.FormatInt(calculate.ConvertToSat(userInput), 10)
 
 	app := fiber.New()
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString(s)
+		return c.SendString("丰" + s + " Satoshis")
 	})
 	app.Listen(":3000")
 
-}
-
-func convertToSat(amt float64) int64 {
-
-	//needs take in a BTC amount and convert it to satoshis
-	var onehm float64 = 100000000
-	var total int64
-
-	total = int64(amt * onehm)
-
-	return total
 }

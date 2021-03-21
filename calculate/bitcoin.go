@@ -1,6 +1,6 @@
 package calculate
 
-func convertToSat(btc float64) int64 {
+func ConvertToSat(btc float64) int64 {
 
 	//needs take in a BTC amount and convert it to satoshis
 	var onehm float64 = 100000000
