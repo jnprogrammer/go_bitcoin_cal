@@ -41,8 +41,8 @@ https://github.com/dustin/go-humanize
 
 naa
 
-btc = 100000000
-ada = 1000000
+1 btc = 100000000 satoshi
+1 ada = 1000000 lovelaces
 
 			Adding User input will in my opinion need to let the use enter numbers without needing the decimal.
 		Why?
